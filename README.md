@@ -1,5 +1,5 @@
 ---
-title: Carrom RL Environment
+title: Carrom RL Env
 emoji: 🎯
 colorFrom: yellow
 colorTo: red
@@ -10,9 +10,13 @@ tags:
   - openenv
 ---
 
-# OpenEnv Carrom
+# Carrom RL Env
 
-An [OpenEnv](https://github.com/meta-pytorch/OpenEnv) **physics-based RL environment** for training and evaluating AI agents on the board game Carrom. Features real Newtonian physics with Coulomb board friction, full ICF rule compliance, LLM-friendly text actions, and a Green Agent efficiency wrapper.
+## About
+
+**Carrom RL Env** is an [OpenEnv](https://github.com/meta-pytorch/OpenEnv)-compatible, physics-based reinforcement-learning environment for the South Asian board game Carrom. Pieces slide on a Pymunk-simulated board with Coulomb (boric-acid-style) kinetic friction, and every shot is scored under the full International Carrom Federation (ICF) rule set — due rule, queen cover, foul handling, colour-based turn continuation.
+
+The environment ships with LLM-friendly text actions (`"aim at queen_0 with strong force from centre"`), rich text-summary observations that include live rule reminders, and a **green-agent evaluator** ([AgentBeats](https://rdi.berkeley.edu/agentx-agentbeats)-style) that owns the task suite and scoring so any policy — random, heuristic, LLM-behind-an-API, or a freshly GRPO-trained model — can be benchmarked head-to-head on a consistent ICF-compliance score. Deploys as a single Docker container exposing both a FastAPI + WebSocket OpenEnv API at the root and a live Gradio board at the same URL for human or LLM auto-play.
 
 ## Features
 
@@ -336,7 +340,7 @@ carrom_rl_env/
 │   ├── env.py               # CarromEnv (physics + ICF game logic)
 │   ├── models.py            # Action, Observation, State models
 │   ├── constants.py         # Board config + physics constants (BOARD_DECEL, FRICTION, …)
-│   └── green_agent.py       # Green Agent efficiency wrapper
+│   └── green_agent.py       # Green Agent (evaluator: task suite + ICF-aware scoring)
 ├── client.py                # CarromEnv (EnvClient)
 ├── inference.py             # Baseline inference script
 ├── server/
