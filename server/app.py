@@ -22,9 +22,12 @@ if _enable_web:
     # Create the base API app (reset/step/state/health/schema endpoints)
     app = create_fastapi_app(CarromEnvironment, Action, Observation)
 
-    # Mount the custom Gradio UI
+    # Mount the custom Gradio UI at BOTH paths:
+    #   - "/"    so HF Spaces' root-path iframe loads the UI directly
+    #   - "/web" kept for backward compat with existing docs/links
     import gradio as gr
     app = gr.mount_gradio_app(app, _gradio_app, path="/web")
+    app = gr.mount_gradio_app(app, _gradio_app, path="/")
 else:
     app = create_app(
         CarromEnvironment,
