@@ -299,6 +299,27 @@ Full log: [`inference_runs/minimax-m2.5-fast_200turns_inference.log`](inference_
 
 MiniMax-M2.5-fast wins the board at 8 coins potted with 1 due and 5 fouls, beating both baselines on reward and efficiency. The heuristic tanks to −6.31 because it's aggressive about shooting at white coins but hands the opponent easy board position on misses.
 
+### nvidia/Nemotron-3-Super-120b-a12b (Nebius)
+
+1 task × 200 turns (seed `0`), via `https://api.tokenfactory.us-central1.nebius.com/v1`.
+Full log: [`inference_runs/nemotron-3-super-120b_200turns_inference.log`](inference_runs/nemotron-3-super-120b_200turns_inference.log)
+Wall-clock: 2001.6 s (~33 min) for the full LLM episode.
+
+| Purple Agent | Reward | Win% | Coins | Dues | ICF% | Efficiency |
+|---|---:|---:|---:|---:|---:|---:|
+| Random | +4.17 | 100% | 8.0 | 1.00 | 100% | 0.712 |
+| Heuristic (ICF-aware) | −6.31 | 0% | 4.0 | 0.00 | 100% | 0.337 |
+| **LLM · Nemotron-3-Super-120b** | **+11.94** | **100%** | **13.0** | 2.00 | 97% | **1.179** |
+
+Nemotron — NVIDIA's 120B hybrid-MoE reasoning model — outscores every baseline on every game metric and has the highest compute efficiency I've seen so far at **1.18 coins potted per 1 000 sim steps**. One parse-failure fallback over 106 agent shots, 2 dues, 4 fouls. The extra reasoning horsepower shows up as more aggressive scoring play than MiniMax (+11.94 vs +4.07 reward on the same seed) at a slight cost in ICF compliance (2 dues vs 1).
+
+### Frontier-model comparison (seed `0`)
+
+| Model | Reward | Coins | Dues | Fouls | ICF % | Efficiency |
+|---|---:|---:|---:|---:|---:|---:|
+| MiniMax-M2.5-fast | +4.07 | 8 | 1 | 5 | 97% | 0.759 |
+| **Nemotron-3-Super-120b** | **+11.94** | **13** | 2 | **4** | 97% | **1.179** |
+
 ## Setup & Usage
 
 ### Prerequisites

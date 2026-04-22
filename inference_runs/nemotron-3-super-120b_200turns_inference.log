@@ -1,0 +1,172 @@
+API endpoint : https://api.tokenfactory.us-central1.nebius.com/v1
+Model        : nvidia/nemotron-3-super-120b-a12b
+API key set  : yes
+Task suite   : 1 × 200-turn boards
+
+============================================================
+PURPLE AGENT: Random
+============================================================
+
+--- Evaluating: Random (1 tasks) ---
+  [ep_0         standard] reward=  +4.17 coins= 8 dues=1 fouls=0 won=✓ icf=0.99
+
+=== Random (1 tasks) ===
+  Avg reward     : +4.170
+  Win rate       : 1.00
+  Avg coins      : 8.0
+  Avg dues       : 1.00   (ICF violations)
+  Avg fouls      : 0.00
+  ICF compliance : 0.995
+  Sim steps      : 11232
+  Efficiency     : 0.7123 coins/1k-steps
+
+============================================================
+PURPLE AGENT: Heuristic (ICF-aware)
+============================================================
+
+--- Evaluating: Heuristic (1 tasks) ---
+  [ep_0         standard] reward=  -6.31 coins= 4 dues=0 fouls=0 won=✗ icf=1.00
+
+=== Heuristic (1 tasks) ===
+  Avg reward     : -6.310
+  Win rate       : 0.00
+  Avg coins      : 4.0
+  Avg dues       : 0.00   (ICF violations)
+  Avg fouls      : 0.00
+  ICF compliance : 1.000
+  Sim steps      : 11877
+  Efficiency     : 0.3368 coins/1k-steps
+
+============================================================
+PURPLE AGENT: LLM (nvidia/nemotron-3-super-120b-a12b)
+============================================================
+
+--- Evaluating: LLM (nvidia/nemotron-3-super-120b-a12b) (1 tasks) ---
+  [shot   1] px=+0.00 angle=+0.12 force=0.60   (score 0-0, coins left 19)
+  [shot   2] px=+0.38 angle=-1.57 force=0.50   (score 0-0, coins left 19)
+  [shot   3] px=+0.38 angle=-1.57 force=0.60   (score 0-0, coins left 19)
+  [shot   4] px=+0.38 angle=-1.47 force=0.20   (score 0-0, coins left 19)
+  [shot   5] px=+0.34 angle=+2.04 force=0.45   (score 0-0, coins left 19)
+  [shot   6] px=-0.20 angle=+0.00 force=0.60   (score 1-0, coins left 18)
+  [shot   7] px=+0.13 angle=-0.60 force=0.80   (score 1-0, coins left 18)
+  [shot   8] px=+0.00 angle=+0.38 force=0.60   (score 1-0, coins left 18)
+  [shot   9] px=+0.20 angle=+0.05 force=0.65   (score 1-0, coins left 18)
+  [shot  10] PARSE FAIL → random fallback
+  [shot  11] px=+0.00 angle=+0.61 force=0.60   (score 1-0, coins left 18)
+  [shot  12] px=+0.00 angle=+0.06 force=0.50   (score 1-0, coins left 18)
+  [shot  13] px=+0.39 angle=+0.00 force=0.60   (score 1-0, coins left 18)
+  [shot  14] px=+0.10 angle=-0.03 force=0.60   (score 2-0, coins left 17)
+  [shot  15] px=+0.13 angle=-0.60 force=0.60   (score 2-0, coins left 17)
+  [shot  16] px=+0.00 angle=+0.00 force=0.50   (score 2-0, coins left 17)
+  [shot  17] px=+0.40 angle=+0.11 force=0.60   (score 2-0, coins left 17)
+  [shot  18] px=+0.02 angle=-0.51 force=0.60   (score 2-0, coins left 17)
+  [shot  19] px=-0.04 angle=-0.01 force=0.40   (score 2-0, coins left 17)
+  [shot  20] px=-0.23 angle=+0.00 force=0.50   (score 2-0, coins left 17)
+  [shot  21] px=+0.31 angle=+0.73 force=0.60   (score 2-0, coins left 17)
+  [shot  22] px=+0.25 angle=+0.00 force=0.50   (score 2-0, coins left 17)
+  [shot  23] px=+0.00 angle=+0.35 force=0.60   (score 2-0, coins left 17)
+  [shot  24] px=-0.32 angle=+0.00 force=0.60   (score 2-0, coins left 17)
+  [shot  25] px=+0.33 angle=+0.00 force=0.60   (score 2-0, coins left 17)
+  [shot  26] px=+0.00 angle=+0.30 force=0.60   (score 2-0, coins left 17)
+  [shot  27] px=-0.38 angle=+0.00 force=0.60   (score 3-0, coins left 16)
+  [shot  28] px=+0.30 angle=+0.04 force=0.60   (score 3-0, coins left 16)
+  [shot  29] px=+0.40 angle=+0.02 force=0.60   (score 3-0, coins left 16)
+  [shot  30] px=-0.35 angle=-0.21 force=0.50   (score 3-0, coins left 16)
+  [shot  31] px=-0.35 angle=-0.20 force=0.60   (score 3-0, coins left 16)
+  [shot  32] PARSE FAIL → random fallback
+  [shot  33] px=+0.40 angle=+0.02 force=0.60   (score 3-0, coins left 16)
+  [shot  34] px=+0.00 angle=+0.51 force=0.65   (score 3--1, coins left 16)
+  [shot  35] px=-0.27 angle=+0.00 force=0.70   (score 4--1, coins left 15)
+  [shot  36] px=+0.10 angle=+0.00 force=0.60   (score 4--1, coins left 15)
+  [shot  37] px=-0.36 angle=-0.04 force=0.22   (score 4--1, coins left 15)
+  [shot  38] PARSE FAIL → random fallback
+  [shot  39] px=+0.20 angle=+0.12 force=0.55   (score 4--1, coins left 15)
+  [shot  40] px=+0.00 angle=-0.62 force=0.60   (score 4--1, coins left 15)
+  [shot  41] px=-0.30 angle=-0.71 force=0.40   (score 4--1, coins left 15)
+  [shot  42] px=+0.40 angle=-0.69 force=0.60   (score 4--1, coins left 15)
+  [shot  43] px=+0.41 angle=-0.70 force=0.60   (score 4--1, coins left 15)
+  [shot  44] px=+0.40 angle=-0.50 force=0.60   (score 4--1, coins left 15)
+  [shot  45] px=+0.35 angle=+1.73 force=0.50   (score 4-0, coins left 14)
+  [shot  46] px=-0.20 angle=-1.14 force=0.60   (score 5-0, coins left 13)
+  [shot  47] px=-0.40 angle=-1.18 force=0.35   (score 5-0, coins left 13)
+  [shot  48] px=-0.32 angle=-0.20 force=0.60   (score 5-1, coins left 12)
+  [shot  49] px=+0.00 angle=-1.55 force=0.60   (score 5-1, coins left 12)
+  [shot  50] px=+0.15 angle=+0.02 force=0.60   (score 6-1, coins left 11)
+  [shot  51] px=+0.00 angle=+1.57 force=0.25   (score 6-1, coins left 11)
+  [shot  52] px=+0.27 angle=-1.24 force=0.40   (score 6-1, coins left 11)
+  [shot  53] px=+0.00 angle=+0.72 force=0.65   (score 6-1, coins left 11)
+  [shot  54] px=-0.28 angle=+0.00 force=0.60   (score 6-1, coins left 11)
+  [shot  55] px=-0.20 angle=-0.01 force=0.60   (score 7-1, coins left 10)
+  [shot  56] px=+0.00 angle=+0.25 force=0.50   (score 5-1, coins left 11)
+  [shot  57] px=-0.20 angle=-0.01 force=0.60   (score 5-1, coins left 11)
+  [shot  58] PARSE FAIL → random fallback
+  [shot  59] px=+0.10 angle=+0.53 force=0.70   (score 5-1, coins left 11)
+  [shot  60] px=-0.07 angle=-0.20 force=0.60   (score 5-1, coins left 11)
+  [shot  61] px=-0.20 angle=+0.00 force=0.60   (score 5-1, coins left 11)
+  [shot  62] px=-0.05 angle=+0.00 force=0.30   (score 5--1, coins left 12)
+  [shot  63] px=-0.33 angle=+0.00 force=0.65   (score 5--1, coins left 12)
+  [shot  64] px=-0.30 angle=-0.05 force=0.70   (score 5--1, coins left 12)
+  [shot  65] px=+0.00 angle=-0.04 force=0.70   (score 5--1, coins left 12)
+  [shot  66] px=+0.04 angle=+0.00 force=0.60   (score 6--1, coins left 11)
+  [shot  67] px=+0.04 angle=+0.00 force=0.25   (score 6--1, coins left 11)
+  [shot  68] px=+0.00 angle=+0.11 force=0.60   (score 6--1, coins left 11)
+  [shot  69] PARSE FAIL → random fallback
+  [shot  70] PARSE FAIL → random fallback
+  [shot  71] px=-0.20 angle=+0.04 force=0.60   (score 6--1, coins left 11)
+  [shot  72] px=-0.20 angle=-0.30 force=0.70   (score 6--1, coins left 12)
+  [shot  73] px=+0.00 angle=+0.38 force=0.80   (score 7--1, coins left 11)
+  [shot  74] px=+0.00 angle=+1.05 force=0.85   (score 7--2, coins left 11)
+  [shot  75] PARSE FAIL → random fallback
+  [shot  76] px=-0.40 angle=-0.22 force=0.20   (score 7--2, coins left 11)
+  [shot  77] px=-0.40 angle=-0.76 force=0.20   (score 7--2, coins left 11)
+  [shot  78] px=-0.20 angle=-0.85 force=0.60   (score 7--2, coins left 11)
+  [shot  79] PARSE FAIL → random fallback
+  [shot  80] px=-0.40 angle=-0.46 force=0.50   (score 7--2, coins left 11)
+  [shot  81] px=+0.02 angle=+0.00 force=0.50   (score 7--2, coins left 11)
+  [shot  82] px=+0.00 angle=-1.00 force=0.45   (score 7--2, coins left 11)
+  [shot  83] px=-0.10 angle=+0.29 force=0.45   (score 7--2, coins left 11)
+  [shot  84] px=-0.40 angle=+1.66 force=0.20   (score 7--2, coins left 11)
+  [shot  85] px=+0.27 angle=+0.00 force=0.60   (score 7--2, coins left 11)
+  [shot  86] px=+0.30 angle=+0.34 force=0.30   (score 7--2, coins left 11)
+  [shot  87] px=+0.32 angle=+0.00 force=0.60   (score 7--2, coins left 11)
+  [shot  88] px=+0.30 angle=+0.46 force=0.60   (score 7--2, coins left 11)
+  [shot  89] px=+0.20 angle=-0.10 force=0.60   (score 7--2, coins left 11)
+  [shot  90] px=-0.40 angle=-0.15 force=0.60   (score 7--2, coins left 11)
+  [shot  91] px=+0.35 angle=+0.00 force=0.60   (score 10--2, coins left 10)
+  [shot  92] px=+0.30 angle=+0.66 force=0.60   (score 7--2, coins left 11)
+  [shot  93] px=-0.20 angle=+1.48 force=0.60   (score 7--2, coins left 11)
+  [shot  94] px=+0.35 angle=+0.20 force=0.80   (score 7--2, coins left 11)
+  [shot  95] px=+0.08 angle=+0.00 force=0.50   (score 7--2, coins left 11)
+  [shot  96] px=+0.00 angle=+0.17 force=0.60   (score 7--2, coins left 11)
+  [shot  97] PARSE FAIL → random fallback
+  [shot  98] px=+0.25 angle=+0.03 force=0.60   (score 7--2, coins left 11)
+  [shot  99] px=-0.33 angle=+0.00 force=0.60   (score 7--2, coins left 11)
+  [shot 100] px=-0.30 angle=-0.03 force=0.60   (score 7--2, coins left 11)
+  [shot 101] px=-0.18 angle=+0.00 force=0.60   (score 7--2, coins left 11)
+  [shot 102] px=+0.00 angle=+0.25 force=0.60   (score 7--2, coins left 11)
+  [shot 103] px=+0.10 angle=+0.00 force=0.60   (score 10--2, coins left 10)
+  [shot 104] px=+0.00 angle=+0.40 force=0.80   (score 7--2, coins left 11)
+  [shot 105] px=+0.00 angle=-0.20 force=0.60   (score 7--2, coins left 11)
+  [shot 106] px=+0.37 angle=-0.76 force=0.60   (score 7--2, coins left 11)
+  [ep_0         standard] reward= +11.94 coins=13 dues=2 fouls=4 won=✓ icf=0.97
+
+=== LLM (nvidia/nemotron-3-super-120b-a12b) (1 tasks) ===
+  Avg reward     : +11.940
+  Win rate       : 1.00
+  Avg coins      : 13.0
+  Avg dues       : 2.00   (ICF violations)
+  Avg fouls      : 4.00
+  ICF compliance : 0.970
+  Sim steps      : 11028
+  Efficiency     : 1.1788 coins/1k-steps
+
+==============================================================================
+LEADERBOARD
+==============================================================================
+Purple Agent                Reward   Win%  Coins   Dues   ICF%      Eff
+------------------------------------------------------------------------------
+random                       +4.17   100%    8.0   1.00   100%    0.712
+heuristic                    -6.31     0%    4.0   0.00   100%    0.337
+llm                         +11.94   100%   13.0   2.00    97%    1.179
+
+Total runtime: 2001.6s
