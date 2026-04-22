@@ -1,0 +1,169 @@
+API endpoint : https://api.tokenfactory.us-central1.nebius.com/v1
+Model        : MiniMaxAI/MiniMax-M2.5-fast
+API key set  : yes
+Task suite   : 1 × 200-turn boards
+
+============================================================
+PURPLE AGENT: Random
+============================================================
+
+--- Evaluating: Random (1 tasks) ---
+  [ep_0         standard] reward=  -4.21 coins= 4 dues=2 fouls=3 won=✗ icf=0.97
+
+=== Random (1 tasks) ===
+  Avg reward     : -4.210
+  Win rate       : 0.00
+  Avg coins      : 4.0
+  Avg dues       : 2.00   (ICF violations)
+  Avg fouls      : 3.00
+  ICF compliance : 0.975
+  Sim steps      : 10862
+  Efficiency     : 0.3683 coins/1k-steps
+
+============================================================
+PURPLE AGENT: Heuristic (ICF-aware)
+============================================================
+
+--- Evaluating: Heuristic (1 tasks) ---
+  [ep_0         standard] reward=  -6.31 coins= 4 dues=0 fouls=0 won=✗ icf=1.00
+
+=== Heuristic (1 tasks) ===
+  Avg reward     : -6.310
+  Win rate       : 0.00
+  Avg coins      : 4.0
+  Avg dues       : 0.00   (ICF violations)
+  Avg fouls      : 0.00
+  ICF compliance : 1.000
+  Sim steps      : 11877
+  Efficiency     : 0.3368 coins/1k-steps
+
+============================================================
+PURPLE AGENT: LLM (MiniMaxAI/MiniMax-M2.5-fast)
+============================================================
+
+--- Evaluating: LLM (MiniMaxAI/MiniMax-M2.5-fast) (1 tasks) ---
+  [shot   1] px=+0.07 angle=+0.79 force=0.60   (score 0-0, coins left 19)
+  [shot   2] px=-0.10 angle=-0.35 force=0.50   (score 0-0, coins left 19)
+  [shot   3] px=-0.10 angle=+0.95 force=0.70   (score 0-0, coins left 19)
+  [shot   4] px=+0.15 angle=+0.70 force=0.50   (score 0-0, coins left 19)
+  [shot   5] px=-0.15 angle=-0.45 force=0.50   (score 0-0, coins left 19)
+  [shot   6] px=-0.15 angle=+0.55 force=0.65   (score 0-0, coins left 19)
+  [shot   7] px=+0.33 angle=-0.95 force=0.50   (score 0-0, coins left 19)
+  [shot   8] px=-0.35 angle=-0.52 force=0.45   (score 0-0, coins left 19)
+  [shot   9] px=-0.15 angle=-1.35 force=0.35   (score 0-0, coins left 19)
+  [shot  10] px=-0.15 angle=+0.60 force=0.55   (score 1-0, coins left 18)
+  [shot  11] px=+0.35 angle=+0.90 force=0.60   (score 1-0, coins left 18)
+  [shot  12] px=-0.15 angle=-0.90 force=0.65   (score 1-0, coins left 18)
+  [shot  13] px=+0.25 angle=+0.00 force=0.60   (score 1-0, coins left 18)
+  [shot  14] px=+0.25 angle=+0.45 force=0.70   (score 1-0, coins left 18)
+  [shot  15] px=+0.25 angle=+0.45 force=0.60   (score 1-0, coins left 18)
+  [shot  16] px=+0.30 angle=+0.79 force=0.50   (score 1-0, coins left 18)
+  [shot  17] px=+0.30 angle=+0.79 force=0.40   (score 1-0, coins left 18)
+  [shot  18] px=+0.30 angle=+0.00 force=0.40   (score 1-0, coins left 18)
+  [shot  19] px=-0.15 angle=+0.45 force=0.50   (score 1-0, coins left 18)
+  [shot  20] px=+0.30 angle=+0.00 force=0.50   (score 1-1, coins left 17)
+  [shot  21] px=+0.25 angle=+0.90 force=0.45   (score 1-1, coins left 17)
+  [shot  22] px=+0.20 angle=+0.65 force=0.45   (score 2-1, coins left 16)
+  [shot  23] px=-0.35 angle=+0.95 force=0.45   (score 2--1, coins left 17)
+  [shot  24] px=-0.35 angle=+0.35 force=0.60   (score 2--1, coins left 17)
+  [shot  25] px=-0.35 angle=+0.15 force=0.60   (score 2--1, coins left 17)
+  [shot  26] px=+0.15 angle=+0.45 force=0.50   (score 2-0, coins left 16)
+  [shot  27] px=-0.15 angle=-0.60 force=0.65   (score 2-0, coins left 16)
+  [shot  28] px=-0.15 angle=+0.95 force=0.45   (score 2-0, coins left 16)
+  [shot  29] px=-0.35 angle=+2.65 force=0.45   (score 2-0, coins left 16)
+  [shot  30] px=+0.00 angle=-0.95 force=0.35   (score 2-0, coins left 16)
+  [shot  31] px=-0.35 angle=+2.85 force=0.45   (score 2-0, coins left 16)
+  [shot  32] px=-0.35 angle=+0.45 force=0.45   (score 2-0, coins left 16)
+  [shot  33] px=-0.35 angle=+2.68 force=0.45   (score 2-0, coins left 16)
+  [shot  34] px=-0.15 angle=+0.66 force=0.60   (score 2-0, coins left 16)
+  [shot  35] px=+0.00 angle=+1.00 force=0.50   (score 2-0, coins left 16)
+  [shot  36] px=+0.35 angle=+0.00 force=0.30   (score 2-0, coins left 16)
+  [shot  37] px=+0.35 angle=+0.15 force=0.60   (score 2-0, coins left 16)
+  [shot  38] px=+0.37 angle=+0.78 force=0.50   (score 2-0, coins left 16)
+  [shot  39] px=+0.15 angle=+0.79 force=0.40   (score 2-0, coins left 16)
+  [shot  40] px=+0.35 angle=-1.30 force=0.50   (score 2-0, coins left 16)
+  [shot  41] px=+0.15 angle=+0.45 force=0.60   (score 2-0, coins left 16)
+  [shot  42] px=+0.40 angle=-0.10 force=0.60   (score 2-0, coins left 16)
+  [shot  43] px=+0.40 angle=-0.06 force=0.35   (score 2-0, coins left 16)
+  [shot  44] px=+0.35 angle=+0.43 force=0.45   (score 2-0, coins left 16)
+  [shot  45] px=+0.35 angle=-0.16 force=0.55   (score 2-0, coins left 16)
+  [shot  46] px=+0.40 angle=+0.10 force=0.50   (score 2-0, coins left 16)
+  [shot  47] px=+0.35 angle=+0.35 force=0.40   (score 2-0, coins left 16)
+  [shot  48] px=+0.35 angle=+0.55 force=0.40   (score 2-0, coins left 16)
+  [shot  49] px=+0.30 angle=+0.05 force=0.40   (score 2-0, coins left 16)
+  [shot  50] px=+0.34 angle=+0.00 force=0.30   (score 2-0, coins left 16)
+  [shot  51] px=+0.35 angle=+0.15 force=0.60   (score 2-0, coins left 16)
+  [shot  52] px=+0.15 angle=+1.25 force=0.45   (score 2-0, coins left 16)
+  [shot  53] px=-0.15 angle=-0.12 force=0.45   (score 2-0, coins left 16)
+  [shot  54] px=+0.35 angle=+0.25 force=0.60   (score 2-0, coins left 16)
+  [shot  55] px=+0.20 angle=+0.30 force=0.50   (score 2-0, coins left 16)
+  [shot  56] px=+0.10 angle=+0.45 force=0.70   (score 3-0, coins left 15)
+  [shot  57] px=+0.34 angle=+0.00 force=0.50   (score 3--1, coins left 16)
+  [shot  58] px=-0.15 angle=+0.10 force=0.35   (score 3--1, coins left 16)
+  [shot  59] px=+0.05 angle=-0.15 force=0.45   (score 3--1, coins left 16)
+  [shot  60] px=-0.35 angle=-0.45 force=0.45   (score 3--1, coins left 16)
+  [shot  61] px=+0.30 angle=+0.05 force=0.50   (score 3--1, coins left 16)
+  [shot  62] px=+0.15 angle=+0.79 force=0.75   (score 3--1, coins left 16)
+  [shot  63] px=-0.35 angle=+0.90 force=0.65   (score 3--1, coins left 16)
+  [shot  64] px=-0.17 angle=+0.10 force=0.50   (score 3--1, coins left 16)
+  [shot  65] px=+0.35 angle=+0.65 force=0.50   (score 3--1, coins left 16)
+  [shot  66] px=+0.35 angle=+1.35 force=0.50   (score 3--1, coins left 16)
+  [shot  67] px=+0.35 angle=+0.15 force=0.25   (score 3--1, coins left 16)
+  [shot  68] px=+0.00 angle=+1.20 force=0.60   (score 3--1, coins left 16)
+  [shot  69] px=-0.15 angle=+0.65 force=0.45   (score 3--1, coins left 16)
+  [shot  70] px=+0.41 angle=+0.79 force=0.35   (score 3--1, coins left 16)
+  [shot  71] px=+0.35 angle=+0.15 force=0.55   (score 3--1, coins left 16)
+  [shot  72] px=-0.35 angle=+2.68 force=0.45   (score 3--1, coins left 16)
+  [shot  73] px=-0.44 angle=-0.25 force=0.45   (score 3--1, coins left 16)
+  [shot  74] px=-0.35 angle=+0.25 force=0.45   (score 3--1, coins left 16)
+  [shot  75] px=-0.20 angle=+2.16 force=0.45   (score 3--1, coins left 16)
+  [shot  76] px=-0.35 angle=+0.45 force=0.45   (score 3--1, coins left 16)
+  [shot  77] px=-0.35 angle=+0.04 force=0.40   (score 3--2, coins left 16)
+  [shot  78] px=-0.35 angle=-0.52 force=0.45   (score 3--2, coins left 16)
+  [shot  79] px=-0.35 angle=-0.60 force=0.55   (score 3--2, coins left 16)
+  [shot  80] px=-0.15 angle=+0.43 force=0.30   (score 3--2, coins left 16)
+  [shot  81] px=-0.35 angle=-0.45 force=0.45   (score 3--2, coins left 16)
+  [shot  82] px=-0.40 angle=-2.68 force=0.35   (score 3--2, coins left 16)
+  [shot  83] px=-0.44 angle=-0.79 force=0.45   (score 3--2, coins left 16)
+  [shot  84] px=+0.05 angle=-2.68 force=0.50   (score 3--2, coins left 16)
+  [shot  85] px=-0.15 angle=+2.65 force=0.45   (score 3--2, coins left 16)
+  [shot  86] px=-0.35 angle=+0.20 force=0.40   (score 3--2, coins left 16)
+  [shot  87] px=-0.15 angle=+2.65 force=0.35   (score 3--2, coins left 16)
+  [shot  88] px=-0.35 angle=+1.25 force=0.45   (score 3--2, coins left 16)
+  [shot  89] px=-0.15 angle=+1.20 force=0.50   (score 3--2, coins left 16)
+  [shot  90] px=-0.35 angle=+0.79 force=0.50   (score 3--2, coins left 16)
+  [shot  91] px=+0.35 angle=+0.00 force=0.50   (score 3--2, coins left 16)
+  [shot  92] px=+0.20 angle=-0.15 force=0.60   (score 3--2, coins left 16)
+  [shot  93] px=+0.24 angle=+0.05 force=0.35   (score 3--2, coins left 16)
+  [shot  94] px=+0.15 angle=+0.12 force=0.55   (score 3--2, coins left 16)
+  [shot  95] px=+0.15 angle=+0.45 force=0.60   (score 4--2, coins left 15)
+  [shot  96] px=-0.10 angle=+0.45 force=0.50   (score 4--2, coins left 15)
+  [shot  97] px=+0.00 angle=+0.08 force=0.45   (score 5--2, coins left 14)
+  [shot  98] px=-0.18 angle=+0.20 force=0.45   (score 5--3, coins left 14)
+  [shot  99] px=-0.15 angle=+0.45 force=0.55   (score 5--4, coins left 14)
+  [shot 100] px=-0.10 angle=+0.65 force=0.45   (score 6--4, coins left 13)
+  [shot 101] px=-0.15 angle=+0.85 force=0.45   (score 6--4, coins left 13)
+  [shot 102] px=+0.15 angle=+0.45 force=0.60   (score 6--4, coins left 13)
+  [shot 103] px=+0.00 angle=+0.06 force=0.50   (score 4--4, coins left 14)
+  [ep_0         standard] reward=  +4.07 coins= 8 dues=1 fouls=5 won=✓ icf=0.97
+
+=== LLM (MiniMaxAI/MiniMax-M2.5-fast) (1 tasks) ===
+  Avg reward     : +4.070
+  Win rate       : 1.00
+  Avg coins      : 8.0
+  Avg dues       : 1.00   (ICF violations)
+  Avg fouls      : 5.00
+  ICF compliance : 0.970
+  Sim steps      : 10538
+  Efficiency     : 0.7592 coins/1k-steps
+
+==============================================================================
+LEADERBOARD
+==============================================================================
+Purple Agent                Reward   Win%  Coins   Dues   ICF%      Eff
+------------------------------------------------------------------------------
+random                       -4.21     0%    4.0   2.00    98%    0.368
+heuristic                    -6.31     0%    4.0   0.00   100%    0.337
+llm                          +4.07   100%    8.0   1.00    97%    0.759
+
+Total runtime: 653.0s

@@ -1,0 +1,33 @@
+id: openenv-carrom-v0
+name: OpenEnv Carrom
+entrypoint: carrom_env.env:CarromEnv
+version: 0.3.0
+description: >-
+  Physics-based Carrom board game environment with Pymunk simulation.
+  Full ICF rule compliance: due rule, queen cover, foul handling, and
+  Coulomb board friction (constant deceleration via velocity_func, not
+  viscous drag). LLM-friendly text actions, rich board observations with
+  rule reminders, and a Green Agent wrapper for compute-efficiency tracking.
+authors:
+  - Bhavish Pahwa
+keywords:
+  - carrom
+  - reinforcement-learning
+  - openenv
+  - pymunk
+  - physics-simulation
+  - spatial-reasoning
+  - multi-agent
+  - green-agent
+  - icf-rules
+  - coulomb-friction
+tags:
+  - openenv
+requirements:
+  - numpy>=1.24
+  - pydantic>=2.0
+  - pymunk>=6.5
+  - fastapi>=0.110
+  - uvicorn>=0.23
+  - openenv-core
+  - requests>=2.25
