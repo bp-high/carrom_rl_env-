@@ -23,7 +23,7 @@ RUN uv pip install --system --no-cache-dir \
     "requests>=2.25" \
     "matplotlib>=3.7" \
     "Pillow>=9.0" \
-    "gradio>=4.44,<5"
+    "gradio>=5,<6"
 
 COPY . /app/env/
 
