@@ -22,7 +22,8 @@ RUN uv pip install --system --no-cache-dir \
     "pymunk>=6.5" \
     "requests>=2.25" \
     "matplotlib>=3.7" \
-    "Pillow>=9.0"
+    "Pillow>=9.0" \
+    "gradio>=4.44,<5"
 
 COPY . /app/env/
 
