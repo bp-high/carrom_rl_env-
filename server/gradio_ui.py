@@ -6,6 +6,8 @@ coins and striker moving in real-time — like a real carrom board.
 
 from __future__ import annotations
 
+import base64
+import io
 import json
 import math
 import os
@@ -93,6 +95,24 @@ _FRAME_DELAY = 0.06      # delay between animation frames (~16 FPS)
 _POST_ANIM_PAUSE = 0.5   # pause after animation before next phase
 
 
+def _img_to_html(img, *, fmt: str = "webp", quality: int = 80) -> str:
+    """Encode a PIL image as a self-contained <img> tag with a base64
+    data URI. Lets us send each frame inside the SSE event itself,
+    avoiding the second HTTP fetch that gr.Image triggers per yield."""
+    if img is None:
+        return ""
+    buf = io.BytesIO()
+    save_kwargs = {"quality": quality} if fmt in ("webp", "jpeg") else {}
+    img.save(buf, format=fmt.upper(), **save_kwargs)
+    b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+    mime = f"image/{fmt}"
+    return (
+        f'<img src="data:{mime};base64,{b64}" '
+        f'style="width:100%;max-width:560px;height:auto;'
+        f'display:block;margin:0 auto;border-radius:8px;" />'
+    )
+
+
 def build_carrom_ui() -> gr.Blocks:
     """Build and return the Gradio Blocks app."""
 
@@ -107,7 +127,7 @@ def build_carrom_ui() -> gr.Blocks:
         if img is None:
             img = render_board(obs)
         return (
-            img,
+            _img_to_html(img),
             obs.text_summary,
             f"{obs.reward:+.3f}" if obs.reward else "",
             f"You {obs.agent_score}  —  {obs.opponent_score} Opponent",
@@ -119,7 +139,7 @@ def build_carrom_ui() -> gr.Blocks:
     def _pack_img_only(obs: Observation, status: str, img):
         """Like _pack but only update image + status (faster for animation)."""
         return (
-            img,
+            _img_to_html(img),
             obs.text_summary,
             "",
             f"You {obs.agent_score}  —  {obs.opponent_score} Opponent",
@@ -136,7 +156,7 @@ def build_carrom_ui() -> gr.Blocks:
         return "🤝 Draw!"
 
     def _empty():
-        return (None, "No game. Click Reset.", "", "", "", "", "")
+        return ("", "No game. Click Reset.", "", "", "", "", "")
 
     def _stream_snapshots(obs, snapshots, status_prefix, is_opponent=False):
         """Yield animation frames from snapshots."""
@@ -396,15 +416,16 @@ def build_carrom_ui() -> gr.Blocks:
     def preview_shot(placement_x: float, angle_deg: float, force: float):
         obs = last_obs.get("obs")
         if obs is None or obs.done:
-            return None
+            return ""
         angle_rad = math.radians(angle_deg)
         valid_x = compute_valid_placement(obs, placement_x)
-        return render_board(
+        img = render_board(
             obs,
             striker_pos=(valid_x, -0.42),
             last_action_angle=angle_rad,
             last_action_force=force,
         )
+        return _img_to_html(img)
 
     # ═════════════════════════════════════════════════════════════════
     # Layout
@@ -421,10 +442,13 @@ def build_carrom_ui() -> gr.Blocks:
 
         with gr.Row():
             with gr.Column(scale=3):
-                board_img = gr.Image(
-                    label="Carrom Board", type="pil",
-                    height=560, interactive=False,
-                    format="webp", show_download_button=False,
+                # gr.HTML (not gr.Image) so each yielded frame ships
+                # inline as a base64 data URI inside the SSE event —
+                # avoids the per-frame HTTP fetch that gr.Image triggers
+                # on every yield, which otherwise dominates over HF's RTT.
+                board_img = gr.HTML(
+                    value="",
+                    label="Carrom Board",
                 )
                 with gr.Row():
                     score_display = gr.Textbox(
