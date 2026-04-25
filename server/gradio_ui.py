@@ -424,6 +424,7 @@ def build_carrom_ui() -> gr.Blocks:
                 board_img = gr.Image(
                     label="Carrom Board", type="pil",
                     height=560, interactive=False,
+                    format="webp", show_download_button=False,
                 )
                 with gr.Row():
                     score_display = gr.Textbox(
@@ -529,9 +530,10 @@ def build_carrom_ui() -> gr.Blocks:
             outputs=outputs,
         )
 
-        # Live preview
+        # Live preview — fire on release (not on every drag step) so we
+        # don't queue up a render per slider tick.
         for slider in [placement_slider, angle_slider, force_slider]:
-            slider.change(
+            slider.release(
                 fn=preview_shot,
                 inputs=[placement_slider, angle_slider, force_slider],
                 outputs=[board_img],

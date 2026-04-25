@@ -126,8 +126,8 @@ def render_board(
     last_action_force: Optional[float] = None,
     opponent_action: Optional[Any] = None,
     hide_striker: bool = False,
-    figsize: Tuple[float, float] = (7, 7.6),
-    dpi: int = 120,
+    figsize: Tuple[float, float] = (5, 5.4),
+    dpi: int = 110,
 ) -> Image.Image:
     """Render the carrom board as a high-quality PIL Image.
 
